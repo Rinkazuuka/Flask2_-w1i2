@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formularz</title>
+    </head>
+    <body>
+        <h1>Wprowadź swoje dane</h1>
+        <form action="/submit" method="post">
+            <label for="name">Imię i nazwisko:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+
+            <label for="birthdate">Data urodzenia</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+            <br><br>
+
+            <label for="profession">Zawód</label>
+            <select id="profession" name="profession" required>
+                <option value="programista">programista</option>
+                <option value="nauczyciel">nauczyciel</option>
+                <option value="lekarz">lekarz</option>
+                <option value="inżynier">inżynier</option>
+                <option value="artysta">artysta</option>
+            </select>
+            <br><br>
+
+            <label>Status studenta</label>
+            <input type="radio" id="student_yes" name="student_status" value="tak" required>
+            <label for="student_yes">Tak</label>
+            <input type="radio" id="student_no" name="student_status" value="nie" required>
+            <label for="student_no">Nie</label>
+            <br><br>
+
+            <label for="location">Miejsce zamieszkania</label>
+            <input type="text" id="location" name="location" required>
+            <br><br>
+
+            <input type="submit" value="Wyślij">
+
+
+        </form>
+
+
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=20) }}
+        </p>
+        <p>
+            {{ form.birthdate.label }}<br>
+            {{ form.birthdate() }}
+        </p>
+        <p>
+            {{ form.profession.label }}<br>
+            {{ form.profession() }}
+        </p>
+        <p>
+            {{ form.student_status.label }}<br>
+            {% for choice in form.student_status %}
+                {{ choice() }} {{ choice.label }}<br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=20) }}
+        </p>
+        <p>
+            {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.birthdate.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.profession.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.student_status.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {% for error in form.location.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
